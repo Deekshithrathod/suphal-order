@@ -553,8 +553,16 @@
 						selected.map((v) => `• ${v.name}: ${qty[v.name]} kg`).join("\n") +
 						`\n\nPlease confirm availability and pricing. Thank you!`
 					: `Hi! I'm interested in ordering fresh mangoes from Suphal 🥭 Could you share varieties and pricing?`;
+				const encoded = encodeURIComponent(message);
+			const phone = "918373028111";
+			if (/android/i.test(navigator.userAgent)) {
 				window.location.href =
-				"https://wa.me/918373028111?text=" + encodeURIComponent(message);
+					"intent://send?phone=" + phone + "&text=" + encoded +
+					"#Intent;scheme=whatsapp;package=com.whatsapp;" +
+					"S.browser_fallback_url=https%3A%2F%2Fplay.google.com%2Fstore%2Fapps%2Fdetails%3Fid%3Dcom.whatsapp;end";
+			} else {
+				window.location.href = "https://wa.me/" + phone + "?text=" + encoded;
+			}
 			}
 		</script>
 	</body>
