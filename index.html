@@ -553,10 +553,8 @@
 						selected.map((v) => `• ${v.name}: ${qty[v.name]} kg`).join("\n") +
 						`\n\nPlease confirm availability and pricing. Thank you!`
 					: `Hi! I'm interested in ordering fresh mangoes from Suphal 🥭 Could you share varieties and pricing?`;
-				window.open(
-					"https://wa.me/918373028111?text=" + encodeURIComponent(message),
-					"_blank",
-				);
+				window.location.href =
+				"https://wa.me/918373028111?text=" + encodeURIComponent(message);
 			}
 		</script>
 	</body>
